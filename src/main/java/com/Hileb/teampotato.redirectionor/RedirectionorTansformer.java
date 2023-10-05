@@ -49,6 +49,7 @@ public class RedirectionorTansformer implements IClassTransformer {
                         il.clear();
                         il.add(n1);
                         il.add(n2);
+                        if ()
                         if (isDeBug)System.out.println("Redirect "+transformedName);
                     }
                 }
