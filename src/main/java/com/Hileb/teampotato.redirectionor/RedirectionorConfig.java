@@ -42,17 +42,22 @@ public class RedirectionorConfig {
             throw new RuntimeException(e);
         }
     }
-    public static class Config{
+    public static class Config {
         public String type;
         public String[] contains;
-        public Config(){
-            type="block";
-            contains=new String[0];
+        public boolean enablinglogs;
+
+        public Config() {
+            type = "block";
+            contains = new String[0];
+            enablinglogs = true;
         }
-        public boolean isBlocking(){
-            if ("block".equals(type))return true;
-            else if ("allow".equals(type))return false;
-            else throw new IllegalArgumentException("unknown type for config/redirectionor_cfg.json :"+type+" it should be \"block\" or \"allow\"");
+
+        public boolean isBlocking() {
+            if ("block".equals(type)) return true;
+            else if ("allow".equals(type)) return false;
+            else if (enablinglogs) return false;
+            else throw new IllegalArgumentException("unknown type for config/redirectionor_cfg.json :" + type + " it should be \"block\" or \"allow\"");
         }
     }
 }
